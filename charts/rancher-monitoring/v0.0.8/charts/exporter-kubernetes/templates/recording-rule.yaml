@@ -14,8 +14,10 @@ spec:
   groups:
   - name: apiserver_metrics.rules
     rules:
-    - record: apiserver_request_count
-      expr: apiserver_request_total
+    - record: apiserver_request_latencies
+      expr: apiserver_request_duration_seconds
+    - record: apiserver_request_latency_seconds
+      expr: apiserver_request_duration_seconds
     - record: apiserver_request_latency
       expr: apiserver_request_duration_seconds
 {{- end }}
